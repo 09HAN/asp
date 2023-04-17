@@ -1,0 +1,61 @@
+﻿@model WebBanMyPham.Context.User
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="content-wrapper">
+    <h2>Chi tiết người dùng</h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Họ
+                @*    @Html.DisplayNameFor(model => model.FirstName)*@
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+
+            <dt>
+                Tên
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                Mật khẩu
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+            @*
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAdmin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsAdmin)
+        </dd>
+            *@
+        </dl>
+    </div>
+    <p>
+        <a href="@Url.Action("Edit", "UserAdmin",new { id = Model.Id })" class="btn btn-sm btn-info mx-2">  Sửa</a>
+       
+        <a href="@Url.Action("Index", "UserAdmin")" class="btn btn-sm btn-default mx-2">  Quay trở lại</a>
+    </p>
+</div>

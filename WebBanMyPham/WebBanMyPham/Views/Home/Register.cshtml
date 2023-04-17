@@ -1,0 +1,81 @@
+﻿@model WebBanMyPham.Context.User
+
+@{
+    ViewBag.Title = "Register";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <!-- ========================= SECTION CONTENT ========================= -->
+    <section class="section-content padding-y">
+
+        <!-- ============================ COMPONENT REGISTER   ================================= -->
+        <div class="card mx-auto" style="max-width:520px; margin-top:40px;">
+            <article class="card-body">
+                <header class="mb-4"><h4 class="card-title text-center">Đăng kí</h4></header>
+                <form>
+
+                    
+                        <div class="form-group">
+                            <label>
+                                <label>  Họ</label>
+                                @*   @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label " })*@
+                                <div>
+                                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                                </div>
+                            </label>
+                        </div> <!-- form-group end.// -->
+                   
+                    <div class=" form-group">
+                        <label>
+                            <label>  Tên</label>
+                            <div>
+                                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                            </div>
+                        </label>
+                    </div> <!-- form-group end.// -->
+                    <div class="form-group">
+                        <label>
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </label>
+                    </div> <!-- form-group end.// -->
+
+
+
+                    <div class="form-group">
+                        <label>
+                            <label>  Mật khẩu</label>
+                            <div>
+                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </label>
+                    </div> <!-- form-group end.// -->
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block" value="Đăng kí"> Đăng kí  </button>
+
+                    </div> <!-- form-group// -->
+                </form>
+            </article><!-- card-body.// -->
+        </div> <!-- card .// -->
+        <p class="text-center mt-4">Bạn đã có tài khoản? <a href="~/Home/Login">Đăng nhập</a></p>
+        <br><br>
+        <!-- ============================ COMPONENT REGISTER  END.// ================================= -->
+
+
+    </section>
+    
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<!-- ========================= SECTION CONTENT END// ========================= -->

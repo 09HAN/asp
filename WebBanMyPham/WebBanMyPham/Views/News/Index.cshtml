@@ -1,0 +1,42 @@
+﻿@model List<WebBanMyPham.Context.Posts>
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h3>Tin tức </h3>
+
+    <div>
+        @foreach (var item in Model)
+        {
+        <figure class="card card-product-grid">
+
+            <div class="bv-lq-inner">
+                <div class="img-bv-lq img-fluid  float-md-left"> <img src="~/Content/images/@item.Avatar"></div>
+                <div class="content-bv-lq">
+                    <div class="title-bv"><h4>@item.Name</h4></div>
+                    <div class="ct-bv mx-3">
+                        <p>@item.FullDescription</p>
+                    </div>
+                </div>
+            </div>
+
+            @*     <figcaption class="info-wrap">
+            <div class="img-bv-lq imgFloat">
+                <img src="~/Content/images/@item.Avatar">
+            </div>
+            <h3>@item.Name</h3>
+
+            <p class="mb-2"> @item.FullDescription </p>
+
+            <hr>
+
+
+
+        </figcaption>*@
+        </figure>
+                }
+
+            </div> <!-- row end.// -->
+        </div> <!-- container .//  -->
+    </section>
+    <!-- ========================= SECTION CONTENT END// ========================= -->

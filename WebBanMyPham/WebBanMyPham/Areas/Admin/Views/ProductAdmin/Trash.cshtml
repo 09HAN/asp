@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Trash";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="content-wrapper">
+    <h2>Thùng rác sản phẩm</h2>
+    @using (Html.BeginForm("Destroy", "ProductAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <table class="table">
+            <tr class="row">
+                <th class="col-3">
+                    Tên sản phẩm
+                </th>
+                <th class="col-3">
+                    Hình đại diện
+                </th>
+
+                <th class="col-3">
+                    Ngày tạo
+
+                </th>
+
+                <th class="col-3">
+                    Chức năng
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr class="row">
+                    <td class="col-3">@item.Name</td>
+                    <td class="col-3"> <img class="img-fluid" src="~/Content/images/product/@item.Avatar" /></td>
+                    <td class="col-3">@item.CreatedOnUtc</td>
+
+
+                    <td class="col-3">
+                        <a href="@Url.Action("Restore", "ProductAdmin", new { id = item.Id })" class="btn btn-sm btn-danger w-75 mb-2">Khôi phục sản phẩm</a>
+                        <a href="@Url.Action("Delete", "ProductAdmin", new { id = item.Id })" class="btn btn-sm btn-danger w-75">   Xóa</a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+
+        <a href="@Url.Action("Index", "ProductAdmin")" class="btn btn-sm btn-info mx-2">  Quay trở lại</a>
+
+    }
+</div>
+

@@ -1,0 +1,39 @@
+﻿@model List<WebBanMyPham.Context.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+    <!-- ========================= SECTION CONTENT ========================= -->
+    <section class="section-content padding-y">
+        <div class="container">
+
+            <nav class="row">
+
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-3">
+                        <div class="card card-category">
+                            <div class="img-wrap w-100 h-50" style="background: #ffffff">
+                               <a href="@Url.Action( "ProductCategory", "Category", new { @Id = item.Id }, null)"> <img src="~/Content/images/items/@item.Avatar"></a>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title"><a href="@Url.Action( "ProductCategory", "Category", new { @Id = item.Id }, null)">@item.Name</a></h4>
+
+                            </div>
+                        </div>
+                    </div> <!-- col.// -->
+                }
+
+
+            </nav> <!-- row.// -->
+
+
+        </div> <!-- container .//  -->
+    </section>
+    <!-- ========================= SECTION CONTENT END// ========================= -->
+
+</body>
+</html>
+

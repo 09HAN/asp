@@ -1,0 +1,68 @@
+﻿@model WebBanMyPham.Context.User
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="content-wrapper">
+    <h2>Xóa</h2>
+
+    <h3>Bạn có chắc muốn xóa người dùng này?</h3>
+    <div>
+        <h4>Người dùng</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Họ
+                @*   @Html.DisplayNameFor(model => model.FirstName)*@
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+
+            <dt>
+                Tên
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                Mật khẩu
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+            @*
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAdmin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsAdmin)
+        </dd>
+            *@
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-danger " /> 
+                <a href="@Url.Action("Index", "UserAdmin")" class="btn btn-sm btn-default mx-2">  Quay trở lại</a>
+            </div>
+        }
+    </div>
+    </div>

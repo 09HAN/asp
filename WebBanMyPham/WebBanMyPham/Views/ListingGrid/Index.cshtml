@@ -1,0 +1,74 @@
+﻿@model WebBanMyPham.Models.HomeModel
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y">
+    <div class="container">
+
+
+        <!-- ============================  FILTER TOP  ================================= -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row">
+                    @foreach (var item in Model.ListProduct)
+                    {
+
+                        <div class="col-md-3">
+                            <figure class="card card-product-grid">
+                                <div class="img-wrap">
+                                   <a href="@Url.Action("Detail","Product", new { @Id = item.Id }, null)"><img src="~/Content/images/product/@item.Avatar"></a> 
+                                </div> <!-- img-wrap.// -->
+                                <figcaption class="info-wrap">
+                                    <a href="@Url.Action("Detail","Product", new { @Id = item.Id }, null)" class="title mb-2">@item.Name</a>
+                                    <div class="price-wrap">
+                                        <span class="price">@item.Price</span>
+                                        <small class="text-muted">/sản phẩm</small>
+                                    </div> <!-- price-wrap.// -->
+
+
+                                    <hr>
+
+                                    <p class="mb-3">
+                                        <span class="tag"> <i class="fa fa-check"></i> Xác nhận</span>
+                                        <span class="tag"> 2 Năm </span>
+                                        <span class="tag"> 23 Đánh giá </span>
+                                    </p>
+
+                                    
+
+                                    <a href="@Url.Action("Contact","Home")" class="btn btn-outline-primary"> <i class="fa fa-envelope"></i> Liên hệ với chúng tôi </a>
+
+                                </figcaption>
+                            </figure>
+                        </div> <!-- col.// -->
+
+                    }
+                </div> <!-- row end.// -->
+
+
+                <nav class="mb-4" aria-label="Page navigation sample">
+                    <ul class="pagination">
+                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+
+
+                <div class="box text-center">
+                    <p>Did you find what you were looking for？</p>
+                    <a href="" class="btn btn-light">Yes</a>
+                    <a href="" class="btn btn-light">No</a>
+                </div>
+                </div>
+
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->

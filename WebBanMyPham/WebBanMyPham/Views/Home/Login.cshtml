@@ -1,0 +1,39 @@
+﻿@model WebBanMyPham.Context.User
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="row justify-content-md-center">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header text-center ">
+                <h3>
+                    Đăng nhập
+                </h3>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email)
+                    
+                    @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", @placeholder = "Nhập email" })
+
+                </div>
+                <div class="form-group">
+                    <label>  Mật khẩu</label>
+                    @*  @Html.LabelFor(m => m.Password)
+        @Html.DisplayNameFor(model => model.Password)*@
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Nhập mật khẩu" })
+                </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block" value="Login"> Đăng nhập</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
